@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="oldLace">#FDF5E6</color>
+    <color name="oldLace2">#aaFDF5E6</color>
+    <color name="beige">#F5F5Dc</color>
+    <color name="blueViolet">#8A2BE2</color>
+    <color name="skyBlue">#87CEEB</color>
+    <color name="DeepSkyBlue">#00BFFF</color>
+    <color name="lightVyan">#E0FFFF</color>
+    <color name="forestGreen">#228B22</color>
+    <color name="coral">#FF7F50</color>
+    <color name="orange">#FFA500</color>
+    <color name="peru">#CD853F</color>
+    <color name="khaki">#F0E68C</color>
+</resources>
