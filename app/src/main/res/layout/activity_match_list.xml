@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListView
-        android:id="@+id/ListView_request_list"
+        android:id="@+id/ListView_match_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
@@ -14,8 +14,5 @@
         android:layout_marginTop="0dp"
         android:dividerHeight="5dp">
     </ListView>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

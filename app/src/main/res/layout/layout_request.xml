@@ -1,53 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="120dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="10dp">
 
-    <TextView
-        android:id="@+id/textView_matchType"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="28dp"
-        android:text="比赛类型: 足球"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textView_matchType"
+    android:layout_width="wrap_content"
+    android:layout_height="28dp"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="28dp"
+    android:text="比赛类型: 足球"
+    android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/textView_requestOwner"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginLeft="224dp"
-        android:layout_marginTop="28dp"
-        android:text="发起者: person"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textView_requestOwner"
+    android:layout_width="wrap_content"
+    android:layout_height="28dp"
+    android:layout_marginLeft="224dp"
+    android:layout_marginTop="28dp"
+    android:text="发起者: person"
+    android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/textView_requestDate"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="68dp"
-        android:text="比赛日期: 2018.2.8"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textView_requestDate"
+    android:layout_width="wrap_content"
+    android:layout_height="28dp"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="68dp"
+    android:text="比赛日期: 2018.2.8"
+    android:textSize="20dp" />
 
 
-    <TextView
-        android:id="@+id/textView_requestTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="224dp"
-        android:layout_marginTop="68dp"
-        android:text="比赛时间10:00am"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textView_requestTime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="224dp"
+    android:layout_marginTop="68dp"
+    android:text="比赛时间10:00am"
+    android:textSize="20dp" />
 
-</android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
