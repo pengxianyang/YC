@@ -25,12 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-
         init();
         set_button();
-
     }
-
     public void init()
     {
         editText_account = (EditText)findViewById(R.id.editText_account);
@@ -50,6 +47,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent1);
+            }
+        });
+        button_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivity.this,ARegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

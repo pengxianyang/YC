@@ -7,6 +7,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.administrator.yc.model.ResultEntity;
+import com.example.administrator.yc.retro_interface.Retro;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2018/3/5.
@@ -27,8 +33,8 @@ public class ARegisterActivity extends AppCompatActivity{
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_a_register);
-
         init();
+        set_button();
     }
 
     public void init()
@@ -47,9 +53,36 @@ public class ARegisterActivity extends AppCompatActivity{
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ARegisterActivity.this,LoginActivity.class);
+                Register();
             }
         });
+    }
+    public void Register() {
+        String username = editText_account.getText().toString();
+        String password = editText_password.getText().toString();
+        String confirm_password = editText_confirm_password.getText().toString();
+        String mail = editText_email.getText().toString();
+        String phone = editText_phone.getText().toString();
+        Retro retro = new Retro();
+        retro.aRegister(username, password, mail, phone)
+                .subscribe(new Subscriber<ResultEntity>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(ARegisterActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                    @Override
+                    public void onNext(ResultEntity resultEntility) {
+                       if(resultEntility.getCode()==1){
+                           Toast.makeText(ARegisterActivity.this,"注册成功",Toast.LENGTH_LONG).show();
+                           Intent intent = new Intent(ARegisterActivity.this,LoginActivity.class);
+                       }
+                       else Toast.makeText(ARegisterActivity.this,"注册失败",Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
 }
