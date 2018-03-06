@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
                     if(index == 1)
                     {
-                        //Intent intent = new Intent(MainActivity.this,NewblogActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this,PersonalActivity.class);
+                        startActivity(intent);
                     }
                     if (index == 2)
                     {
