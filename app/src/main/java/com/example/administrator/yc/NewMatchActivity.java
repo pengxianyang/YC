@@ -21,6 +21,8 @@ public class NewMatchActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_newmatch);
+        init();
+        set_Button();
     }
 
     public void init()
