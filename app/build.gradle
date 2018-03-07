@@ -38,6 +38,5 @@ dependencies {
     compile files('libs/pinyin4j-2.5.0.jar')
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.contrarywind:Android-PickerView:3.2.7'
-    implementation files('src/main/jniLibs/BaiduLBS_Android.jar')
     compile 'com.android.support:design:26.0.0-alpha1'
 }
