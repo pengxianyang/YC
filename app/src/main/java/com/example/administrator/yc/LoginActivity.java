@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Login("0");
+                Login("1");
             }
         });
         button_register.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +68,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     void Login(String func){//0-管理员登录，1-用户登录
         Retro retro=new Retro();
-        String username=editText_account.getText().toString();
-        String password=editText_password.getText().toString();
+        final String username=editText_account.getText().toString();
+        final String password=editText_password.getText().toString();
         if(username.equals("")||password.equals(""))
             Toast.makeText(LoginActivity.this,"用户和密码不能为空",Toast.LENGTH_LONG).show();
         else
@@ -92,6 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                             else if(resultEntity.getCode()==-1)
                                 Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
                             else if(resultEntity.getCode()==1){  //管理员登录
+                                GlobalData.username=username;
+                                GlobalData.password=password;
                                 Intent intent1 = new Intent(LoginActivity.this,MainActivity2.class);
                                 startActivity(intent1);
                             }
