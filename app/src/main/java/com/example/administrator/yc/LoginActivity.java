@@ -7,6 +7,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.administrator.yc.model.ResultEntity;
+import com.example.administrator.yc.retro_interface.Retro;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2018/3/5.
@@ -39,23 +45,58 @@ public class LoginActivity extends AppCompatActivity {
 
     public void set_button()
     {
-
         //Intent intent2 = new Intent(LoginActivity.this,MainActivity.class);
 
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(intent1);
+               Login("0");
             }
         });
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(LoginActivity.this,ARegisterActivity.class);
                 startActivity(intent);
             }
         });
+    }
+    void Login(String func){//0-管理员登录，1-用户登录
+        Retro retro=new Retro();
+        String username=editText_account.getText().toString();
+        String password=editText_password.getText().toString();
+        if(username.equals("")||password.equals(""))
+            Toast.makeText(LoginActivity.this,"用户和密码不能为空",Toast.LENGTH_LONG).show();
+        else
+            retro.Login(username,password,func)
+                    .subscribe(new Subscriber<ResultEntity>() {
+                        @Override
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onNext(ResultEntity resultEntity) {
+                            if(resultEntity.getCode()==0)
+                                Toast.makeText(LoginActivity.this,"用户或密码错误",Toast.LENGTH_LONG).show();
+                            else if(resultEntity.getCode()==-1)
+                                Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
+                            else if(resultEntity.getCode()==1){  //管理员登录
+                                Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
+                                startActivity(intent1);
+                            }
+                            else if(resultEntity.getCode()==2){ //运动员登录
+                                Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
+                                startActivity(intent1);
+                            }
+                        }
+                    });
     }
 
 

@@ -68,11 +68,10 @@ public class ARegisterActivity extends AppCompatActivity{
                 .subscribe(new Subscriber<ResultEntity>() {
                     @Override
                     public void onCompleted() {
-
                     }
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(ARegisterActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(ARegisterActivity.this,"连接失败",Toast.LENGTH_LONG).show();
                     }
                     @Override
                     public void onNext(ResultEntity resultEntility) {
