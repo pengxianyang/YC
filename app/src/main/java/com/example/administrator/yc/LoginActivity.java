@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                             else if(resultEntity.getCode()==-1)
                                 Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
                             else if(resultEntity.getCode()==1){  //管理员登录
-                                Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
+                                Intent intent1 = new Intent(LoginActivity.this,MainActivity2.class);
                                 startActivity(intent1);
                             }
                             else if(resultEntity.getCode()==2){ //运动员登录

@@ -59,6 +59,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".MainActivity2"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".PRegisterActivity"
+            android:screenOrientation="portrait">
+        </activity>
 
          <!-- 百度定位服务 -->
          <meta-data
@@ -68,13 +77,6 @@
          android:name="com.baidu.location.f"
          android:enabled="true"
          android:process=":remote" />
-
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PRegisterActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".PersonalActivity"
             android:screenOrientation="portrait" />
