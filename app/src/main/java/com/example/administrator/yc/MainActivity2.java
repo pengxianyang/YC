@@ -78,8 +78,8 @@ public class MainActivity2 extends AppCompatActivity {
                     }
                     if(index == 4)
                     {
-//                        Intent intent = new Intent(MainActivity2.this,MatchListActivity.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity2.this,MatchDetailsActivity.class);
+                        startActivity(intent);
                     }
                 }
             });
