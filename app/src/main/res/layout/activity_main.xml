@@ -4,26 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.yc.MainActivity">
+    tools:context="com.example.administrator.yc.MainActivity"
+    android:background="@mipmap/bk9_s">
 
-    <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/bmb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:bmb_buttonEnum="textInsideCircle"
-        app:bmb_buttonPlaceEnum="buttonPlace_sc_6_1"
-        app:bmb_piecePlaceEnum="piecePlace_dot_6_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+
 
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="544dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"></android.support.v4.view.ViewPager>
+        app:layout_constraintRight_toRightOf="parent">
+
+    </android.support.v4.view.ViewPager>
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator"
@@ -38,33 +34,22 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="90dp"
+        android:background="#90F0FFF0">
 
-        <TextView
-            android:id="@+id/textView_welcome"
-            android:layout_width="53dp"
-            android:layout_height="42dp"
-            android:layout_marginLeft="84dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="HI,"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_name"
             android:layout_width="168dp"
             android:layout_height="42dp"
-            android:layout_marginLeft="148dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="NewUser"
             android:textSize="25sp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleimageview_icon"
@@ -74,9 +59,23 @@
             android:layout_marginTop="10dp"
             android:src="@mipmap/icon"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.nightonke.boommenu.BoomMenuButton
+            android:id="@+id/bmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bmb_buttonEnum="textInsideCircle"
+            app:bmb_buttonPlaceEnum="buttonPlace_sc_6_1"
+            app:bmb_piecePlaceEnum="piecePlace_dot_6_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
+
+
 
 
 

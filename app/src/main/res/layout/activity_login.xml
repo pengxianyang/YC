@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/bk2_s">
 
     <!--<ImageView-->
     <!--android:id="@+id/imageView_login_icon"-->
@@ -14,17 +15,39 @@
     <!--android:layout_width="150dp"-->
     <!--android:layout_height="150dp"-->
     <!--/>-->
-    <TextView
-        android:id="@+id/textView_intro"
+
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Game Matcher"
-        android:textSize="50sp"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginTop="68dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Match"
+            android:textColor="@color/yellow"
+            android:textSize="80sp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_intro2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="er"
+            android:textColor="@color/paleGreen"
+            android:textSize="80sp"
+
+            app:layout_constraintLeft_toRightOf="@id/textView_intro"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
 
     <!--<TextView-->
         <!--android:id="@+id/textView_intro2"-->
@@ -67,7 +90,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="392dp"
         android:background="@drawable/button_radiaus"
-        android:text="Login"
+        android:text="登录"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -79,7 +103,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="460dp"
         android:background="@drawable/button_radiaus"
-        android:text="register"
+        android:text="注册"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

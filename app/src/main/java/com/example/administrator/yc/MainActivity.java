@@ -56,9 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onBoomButtonClick(int index) {
                     Toast.makeText(MainActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
-                    if(index == 1)
+                    if(index == 0)
                     {
                         Intent intent = new Intent(MainActivity.this,SearchMatchActivity.class);
+                        startActivity(intent);
+                    }
+                    if(index == 1)
+                    {
+                        Intent intent = new Intent(MainActivity.this,MapActivity.class);
                         startActivity(intent);
                     }
                     if (index == 2)

@@ -5,16 +5,49 @@
     android:layout_height="544dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textView_runningGame"
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="327dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="68dp"
-        android:text="您的比赛:"
-        android:textSize="20sp"
+        android:layout_height="60dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_runningGame"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:text="您的比赛:"
+            android:textColor="@color/lightVyan"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView_hint1"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginRight="72dp"
+            android:text="点这刷新:"
+            android:textColor="@color/lightVyan"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517" />
+
+        <ImageView
+            android:id="@+id/imageView_refresh"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/refresh_s"/>
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="330dp"

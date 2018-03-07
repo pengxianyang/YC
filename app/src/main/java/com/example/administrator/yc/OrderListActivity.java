@@ -2,6 +2,7 @@ package com.example.administrator.yc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
@@ -24,6 +25,7 @@ public class OrderListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list);
         getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         init_listView();
 
@@ -33,13 +35,14 @@ public class OrderListActivity extends AppCompatActivity {
     {
         listView_order_list = (ListView)findViewById(R.id.ListView_order_list);
         list_infos = new ArrayList<>();
+        total=10;
 
         for(int i=0;i<=total-1;i++)
         {
             Map<String,String> map = new LinkedHashMap<>();
-            map.put("orderOwner","orderOwner");
-            map.put("orderStatus","orderStatus");
-            map.put("orderNumber","orderNumber");
+            map.put("orderOwner","彭先洋");
+            map.put("orderStatus","已付款");
+            map.put("orderNumber","001");
             list_infos.add(map);
         }
 

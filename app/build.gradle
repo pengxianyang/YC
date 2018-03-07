@@ -34,8 +34,13 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+<<<<<<< HEAD
     compile files('libs/pinyin4j-2.5.0.jar')
     compile 'com.android.support:recyclerview-v7:26.+'
     compile files('libs/pinyin4j-2.5.0.jar')
     compile 'com.contrarywind:Android-PickerView:3.2.7'
+=======
+    implementation files('src/main/jniLibs/BaiduLBS_Android.jar')
+    compile 'com.android.support:design:26.0.0-alpha1'
+>>>>>>> 6350a47e2ae43b27d4967923a3f0bd9891f94209
 }
