@@ -99,17 +99,17 @@
         <RadioButton
             android:layout_width="83dp"
             android:layout_height="match_parent"
-            android:hint="跑步" />
+            android:text="running"/>
 
         <RadioButton
             android:layout_width="83dp"
             android:layout_height="match_parent"
-            android:hint="足球" />
+            android:text="soccer" />
 
         <RadioButton
-            android:layout_width="83dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="篮球" />
+            android:text="basketball" />
     </RadioGroup>
 
     <EditText
@@ -166,7 +166,6 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/textView_t4"
         app:layout_constraintTop_toBottomOf="@+id/textView_t4" />
-    
 
     <Button
         android:id="@+id/button_toGPS"
