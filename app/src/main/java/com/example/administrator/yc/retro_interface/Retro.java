@@ -1,6 +1,7 @@
 package com.example.administrator.yc.retro_interface;
 
 import com.example.administrator.yc.model.Administrator;
+import com.example.administrator.yc.model.Player;
 import com.example.administrator.yc.model.ResultEntity;
 
 import retrofit2.Retrofit;
@@ -32,5 +33,14 @@ public class Retro {
         return service.aRegister(administrator)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<ResultEntity>pRegister(String username,String password,String nickname,String mail,
+                                             String phone){
+        Player player = new Player(0,"",username,password,nickname,mail,phone,"");
+        return service.pRegister(player)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 }
