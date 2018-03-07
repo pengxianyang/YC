@@ -1,12 +1,14 @@
 package com.example.administrator.yc;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by Administrator on 2018/3/5.
@@ -18,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     public EditText editText_password;
     public Button button_login;
     public Button button_register;
+    public TextView textView_intro1;
+    public TextView textView_intro2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
         set_button();
+        set_font();
     }
     public void init()
     {
@@ -52,10 +57,19 @@ public class LoginActivity extends AppCompatActivity {
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,ARegisterActivity.class);
+                Intent intent=new Intent(LoginActivity.this,RegisterTypeActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    public void set_font()
+    {
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "font/Ga.otf");
+        textView_intro1 = (TextView)findViewById(R.id.textView_intro);
+        textView_intro2 = (TextView)findViewById(R.id.textView_intro2);
+        textView_intro1.setTypeface(typeface);
+        textView_intro2.setTypeface(typeface);
     }
 
 

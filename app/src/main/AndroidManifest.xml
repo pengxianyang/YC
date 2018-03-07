@@ -33,6 +33,14 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".NewMatchActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".RegisterTypeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name="LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
