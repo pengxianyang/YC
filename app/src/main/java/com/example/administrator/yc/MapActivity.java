@@ -3,6 +3,7 @@ package com.example.administrator.yc;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import android.content.Intent;
@@ -182,10 +183,17 @@ public class MapActivity extends AppCompatActivity {
         for(int i = 0; i < num; i++){
             overlayOptions[i] =  new MarkerOptions()
                     .position(point[i])
-                    .icon(bitmap[i]);
+                    .icon(bitmap[i]).perspective(true);
             options.add(overlayOptions[i]);
         }
         //在地图上批量添加
         baiduMap.addOverlays(options);
+        //设置监听器
+        baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                return false;
+            }
+        });
     }
 }

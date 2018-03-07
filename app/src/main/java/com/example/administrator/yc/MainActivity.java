@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(index == 1)
                     {
-//                        Intent intent = new Intent(MainActivity.this,PersonalActivity.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this,MapActivity.class);
+                        startActivity(intent);
                     }
                     if (index == 2)
                     {
