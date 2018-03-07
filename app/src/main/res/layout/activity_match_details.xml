@@ -18,7 +18,8 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:background="@drawable/shape_corner"
+        android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
         app:layout_constraintHorizontal_bias="0.493"
@@ -30,10 +31,11 @@
             android:id="@+id/TextView_match_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
             android:text="所选场地: 中大篮球场"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,10 +43,11 @@
             android:id="@+id/TextView_match_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
             android:text="比赛日期: 2018年 3月 7日"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,9 +56,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
+            android:layout_marginLeft="30dp"
             android:text="比赛时间: 15:20"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,10 +67,11 @@
             android:id="@+id/TextView_player_counts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="148dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="140dp"
             android:text="参与人数: 0/22"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,12 +79,25 @@
             android:id="@+id/TextView_match_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="188dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="180dp"
             android:text="比赛状态: 确认中"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TextView_blank"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="1dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_match_status" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -90,6 +108,7 @@
         android:layout_marginTop="472dp"
         android:background="@drawable/button_radiaus"
         android:text="确认比赛"
+        android:textSize="20dp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
