@@ -114,11 +114,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".NewMatchActivity"
-            android:screenOrientation="portrait">
 
-        </activity>
         <activity android:name="com.example.administrator.yc.ContactviewActivity"
             android:screenOrientation="portrait">
 
@@ -126,16 +122,16 @@
         <activity android:name=".SearchMatchActivity"
             android:screenOrientation="portrait">
 
-=======
+        </activity>
 
         <activity android:name=".MapActivity" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
->>>>>>> 6350a47e2ae43b27d4967923a3f0bd9891f94209
         </activity>
+
+        <activity android:name=".ParticipatorListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+
     </application>
 
 </manifest>

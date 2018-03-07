@@ -15,16 +15,13 @@
     <color name="orange">#FFA500</color>
     <color name="peru">#CD853F</color>
     <color name="khaki">#F0E68C</color>
-<<<<<<< HEAD
     <color name="lightGrey">#979797</color>
     <color name="white">#fff</color>
     <color name="cardBg">#cefcfbfb</color>
-=======
     <color name="paleGreen">#98FB98</color>
     <color name="lightGreen">#90EE90</color>
     <color name="springGreen">#00FF7F</color>
     <color name="honeyDew">#F0FFF0</color>
     <color name="black">#000000</color>
     <color name="yellow">#FFFF00</color>
->>>>>>> 6350a47e2ae43b27d4967923a3f0bd9891f94209
 </resources>

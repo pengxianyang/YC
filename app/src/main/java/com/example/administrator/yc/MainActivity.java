@@ -58,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
                     if(index == 0)
                     {
-                        Intent intent = new Intent(MainActivity.this,SearchMatchActivity.class);
+                        Intent intent = new Intent(MainActivity.this,PersonalActivity.class);
                         startActivity(intent);
                     }
                     if(index == 1)
                     {
-                        Intent intent = new Intent(MainActivity.this,MapActivity.class);
+                        Intent intent = new Intent(MainActivity.this,SearchMatchActivity.class);
                         startActivity(intent);
                     }
                     if (index == 2)
