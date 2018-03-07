@@ -78,8 +78,8 @@ public class MainActivity2 extends AppCompatActivity {
                     }
                     if(index == 4)
                     {
-//                        Intent intent = new Intent(MainActivity2.this,MatchListActivity.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity2.this,MatchDetailsActivity.class);
+                        startActivity(intent);
                     }
                 }
             });
@@ -92,13 +92,13 @@ public class MainActivity2 extends AppCompatActivity {
             }
             if(i==1)//寻找比赛
             {
-                builder.normalImageRes(R.mipmap.find_s);
+                builder.normalImageRes(R.mipmap.req_s);
                 builder.normalText("比赛请求");
 
             }
             if(i==2)//创建比赛
             {
-                builder.normalImageRes(R.mipmap.add_s);
+                builder.normalImageRes(R.mipmap.dep_s);
                 builder.normalText("查看订单");
             }
             if(i==3)//查看消息

@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
                     if(index == 0)
                     {
-                        Intent intent = new Intent(MainActivity.this,PersonalActivity.class);
+                        Intent intent = new Intent(MainActivity.this,SearchMatchActivity.class);
                         startActivity(intent);
                     }
                     if(index == 1)
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(index == 3)
                     {
-                        //Intent intent = new Intent(MainActivity.this,FriendActivity.class);
+                        //Intent intent = new Intent(MainActivity.this,SearchMatchActivity.class);
                         //startActivity(intent);
                     }
                     if(index == 4)
@@ -83,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(index == 5)
                     {
-                        //Intent intent = new Intent(MainActivity.this,LookActivity.class);
-                        //startActivity(intent);
+                        //好友列表
+                        Intent intent = new Intent(MainActivity.this,ContactviewActivity.class);
+                        startActivity(intent);
                     }
                 }
             });

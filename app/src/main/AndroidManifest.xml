@@ -98,6 +98,10 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".MatchDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name="LoginActivity"
             android:screenOrientation="portrait">
         </activity>
@@ -111,6 +115,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.example.administrator.yc.ContactviewActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".SearchMatchActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".MapActivity" >
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -118,9 +130,6 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity
-            android:name=".MatchDetailsActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
