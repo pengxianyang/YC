@@ -15,4 +15,7 @@
     <color name="orange">#FFA500</color>
     <color name="peru">#CD853F</color>
     <color name="khaki">#F0E68C</color>
+    <color name="lightGrey">#979797</color>
+    <color name="white">#fff</color>
+    <color name="cardBg">#cefcfbfb</color>
 </resources>

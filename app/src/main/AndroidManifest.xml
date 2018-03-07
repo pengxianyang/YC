@@ -40,7 +40,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>>
+        </activity>
+        <activity android:name=".NewMatchActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name="com.example.administrator.yc.ContactviewActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".SearchMatchActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>
