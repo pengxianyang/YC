@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/bk2_s">
 
 
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_player_register"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="240dp"
@@ -20,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_register"
+        android:id="@+id/button_administrator_register"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="320dp"
