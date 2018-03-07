@@ -119,7 +119,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".MainActivity2"
+            android:name=".MatchDetailsActivity"
             android:screenOrientation="portrait" />
     </application>
 

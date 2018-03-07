@@ -2,10 +2,17 @@ package com.example.administrator.yc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.administrator.yc.model.ResultEntity;
+import com.example.administrator.yc.retro_interface.Retro;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2018/3/7.
@@ -20,7 +27,8 @@ public class MatchDetailsActivity extends AppCompatActivity {
     public TextView textView_match_date;//比赛日期
     public TextView textView_match_time;//比赛时间
     public Button button_confirm_match;//确认比赛按钮
-
+    private String fieldName;
+    Retro retro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +43,60 @@ public class MatchDetailsActivity extends AppCompatActivity {
         textView_player_counts = (TextView)findViewById(R.id.TextView_player_counts);
         textView_match_place = (TextView)findViewById(R.id.TextView_match_place);
         button_confirm_match = (Button)findViewById(R.id.button_confirm_match);
+        retro=new Retro();
+        getFieldName(1);
+        button_confirm_match.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String date=NewMatchActivity.date_m+"-"+NewMatchActivity.date_d;
+                String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
+                CreateMatch(GlobalData.username,date+" "+time,fieldName,0,
+                               Integer.parseInt(NewMatchActivity.num),NewMatchActivity.type);
+            }
+        });
+    }
+    private void getFieldName(int fieldId){
+        retro.GetFieldName(String.valueOf(fieldId))
+                .subscribe(new Subscriber<ResultEntity>() {
+                    @Override
+                    public void onCompleted() {
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+Toast.makeText(MatchDetailsActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onNext(ResultEntity s) {
+                        fieldName=s.getMessage();
+                        textView_match_place.setText("place:"+s.getMessage());
+                        String date=NewMatchActivity.date_m+"-"+NewMatchActivity.date_d;
+                        String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
+                        textView_match_time.setText("time:"+time);
+                        textView_match_date.setText("date:"+date);
+                        textView_player_counts.setText("current number:"+"1/"+NewMatchActivity.num);
+                        textView_match_status.setText("status:waiting");
+                    }
+                });
+    }
+    private void CreateMatch(String creator,String time,String field_name,int field_id,int total,String type){
+        retro.CreateMatch(creator,time,field_name,field_id,total,type)
+                .subscribe(new Subscriber<ResultEntity>() {
+                    @Override
+                    public void onCompleted() {
+                        Toast.makeText(MatchDetailsActivity.this,"创建成功",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(MatchDetailsActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onNext(ResultEntity resultEntity) {
+                        Toast.makeText(MatchDetailsActivity.this,String.valueOf(resultEntity.getCode()),Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

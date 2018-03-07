@@ -98,6 +98,8 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent1);
                             }
                             else if(resultEntity.getCode()==2){ //运动员登录
+                                GlobalData.username=username;
+                                GlobalData.password=password;
                                 Intent intent1 = new Intent(LoginActivity.this,MainActivity.class);
                                 startActivity(intent1);
                             }

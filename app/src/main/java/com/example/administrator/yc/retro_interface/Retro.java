@@ -1,6 +1,7 @@
 package com.example.administrator.yc.retro_interface;
 
 import com.example.administrator.yc.model.Administrator;
+import com.example.administrator.yc.model.Match;
 import com.example.administrator.yc.model.Player;
 import com.example.administrator.yc.model.ResultEntity;
 
@@ -51,6 +52,17 @@ public class Retro {
                                              String phone){
         Player player = new Player(0,"",username,password,nickname,mail,phone,"");
         return service.pRegister(player)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    public Observable<ResultEntity >GetFieldName(String fieldId){
+        return service.getFieldName(fieldId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    public Observable<ResultEntity>CreateMatch(String creator,String time,String field_name,int field_id,int total,String type){
+        Match match=new Match(0,total,creator,type,field_id,field_name,time,0,"","");
+        return service.CreateMatch(match)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
