@@ -40,6 +40,7 @@ public class MapActivity extends AppCompatActivity {
     private TextureMapView mapView;//百度地图控件
     private BaiduMap baiduMap;//百度地图对象
     boolean isFirstLoc = true; // 是否首次定位
+    Bundle Match;
 
     //地图类型切换
     int flag = 1;
@@ -59,11 +60,12 @@ public class MapActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_map);
 
+        Match = this.getIntent().getExtras();
         //获取百度地图控件
         mapView = (TextureMapView) findViewById(R.id.mTexturemap);
         //获取百度地图对象
         baiduMap = mapView.getMap();
-        baiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+        baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -185,9 +187,12 @@ public class MapActivity extends AppCompatActivity {
 
         //创建OverlayOptions属性,并将OverlayOptions添加到list
         for(int i = 0; i < num; i++){
+            Bundle id = new Bundle();
+            id.putString("id",Integer.toString(i));
             overlayOptions[i] =  new MarkerOptions()
                     .position(point[i])
-                    .icon(bitmap[i]).perspective(true);
+                    .icon(bitmap[i])
+                    .extraInfo(id);
             options.add(overlayOptions[i]);
         }
         //在地图上批量添加
@@ -196,6 +201,11 @@ public class MapActivity extends AppCompatActivity {
         baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                String id = marker.getExtraInfo().getString("id");
+                Intent intent=new Intent(MapActivity.this,MainActivity.class);
+                Match.putString("id",id);
+                intent.putExtras(Match);
+                startActivity(intent);
                 return false;
             }
         });
