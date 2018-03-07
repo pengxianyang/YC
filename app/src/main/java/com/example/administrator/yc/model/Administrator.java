@@ -5,7 +5,6 @@ package com.example.administrator.yc.model;
  */
 
 public class Administrator {
-    int aid;
     int credit;
     String head;
     String username;
@@ -14,9 +13,8 @@ public class Administrator {
     String phone;
     String field;
     String license;
-    public Administrator(int aid,int credit,String head,String username,
+    public Administrator(int credit,String head,String username,
                          String password,String mail,String phone,String field,String license){
-        this.aid=aid;
         this.credit=credit;
         this.head=head;
         this.username=username;
@@ -26,11 +24,6 @@ public class Administrator {
         this.field=field;
         this.license=license;
     }
-
-    public int getAid() {
-        return aid;
-    }
-
     public int getCredit() {
         return credit;
     }

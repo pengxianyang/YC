@@ -69,6 +69,7 @@
          android:enabled="true"
          android:process=":remote" />
 
+<<<<<<< HEAD
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
@@ -89,6 +90,33 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
+=======
+        <activity android:name=".PersonalActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".MatchListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".ARegisterActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".OrderListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".NewMatchActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".RegisterTypeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="LoginActivity"
+>>>>>>> 1825627035697bf602398b15c0f83a59a397aa4d
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
