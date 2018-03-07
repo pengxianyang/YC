@@ -66,27 +66,27 @@ public class ARegisterActivity extends AppCompatActivity{
 
 
         if(isInputValid(username,password,confirm_password,mail,phone)){
-
+            Retro retro = new Retro();
+            retro.aRegister(username, password, mail, phone)
+                    .subscribe(new Subscriber<ResultEntity>() {
+                        @Override
+                        public void onCompleted() {
+                        }
+                        @Override
+                        public void onError(Throwable e) {
+                            Toast.makeText(ARegisterActivity.this,"连接失败",Toast.LENGTH_LONG).show();
+                        }
+                        @Override
+                        public void onNext(ResultEntity resultEntility) {
+                            if(resultEntility.getCode()==1){
+                                Toast.makeText(ARegisterActivity.this,"注册成功",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(ARegisterActivity.this,LoginActivity.class);
+                            }
+                            else Toast.makeText(ARegisterActivity.this,"注册失败",Toast.LENGTH_LONG).show();
+                        }
+                    });
         }
-        Retro retro = new Retro();
-        retro.aRegister(username, password, mail, phone)
-                .subscribe(new Subscriber<ResultEntity>() {
-                    @Override
-                    public void onCompleted() {
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(ARegisterActivity.this,"连接失败",Toast.LENGTH_LONG).show();
-                    }
-                    @Override
-                    public void onNext(ResultEntity resultEntility) {
-                       if(resultEntility.getCode()==1){
-                           Toast.makeText(ARegisterActivity.this,"注册成功",Toast.LENGTH_LONG).show();
-                           Intent intent = new Intent(ARegisterActivity.this,LoginActivity.class);
-                       }
-                       else Toast.makeText(ARegisterActivity.this,"注册失败",Toast.LENGTH_LONG).show();
-                    }
-                });
+
     }
 
     public boolean isInputValid(String username,String password,String confirm_pass,String mail,String phone){
