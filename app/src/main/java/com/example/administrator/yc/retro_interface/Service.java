@@ -21,13 +21,10 @@ public interface Service {
     @POST("RegisterAction?func=0")
     Observable<ResultEntity> aRegister(@Body Administrator administrator);
 
-<<<<<<< HEAD
-
     /*登录：需要username,pass,func*/
     @POST("LoginAction")
     Observable<ResultEntity> Login(@QueryMap Map<String,String> map);
-=======
+
     @POST("RegisterAction?func=1")
     Observable<ResultEntity> pRegister(@Body Player player);
->>>>>>> 230cd9ebbd660b464727e3c50e0e41b2085a1fff
 }

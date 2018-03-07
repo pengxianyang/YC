@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Login("0");
+                Login("0");
             }
         });
         button_register.setOnClickListener(new View.OnClickListener() {

@@ -37,16 +37,15 @@ public class Retro {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-<<<<<<< HEAD
-    public Observable<ResultEntity>Login(String username,String password,String func){
-        Map<String,String> map=new HashMap<>();
-        map.put("username",username);
-        map.put("password",password);
-        map.put("func",func);
+    public Observable<ResultEntity>Login(String username,String password,String func) {
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+        map.put("password", password);
+        map.put("func", func);
         return service.Login(map)
-                . subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-=======
+    }
 
     public Observable<ResultEntity>pRegister(String username,String password,String nickname,String mail,
                                              String phone){
@@ -54,7 +53,5 @@ public class Retro {
         return service.pRegister(player)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-
->>>>>>> 230cd9ebbd660b464727e3c50e0e41b2085a1fff
     }
 }
