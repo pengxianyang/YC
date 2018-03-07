@@ -35,13 +35,14 @@ public class OrderListActivity extends AppCompatActivity {
     {
         listView_order_list = (ListView)findViewById(R.id.ListView_order_list);
         list_infos = new ArrayList<>();
+        total=10;
 
         for(int i=0;i<=total-1;i++)
         {
             Map<String,String> map = new LinkedHashMap<>();
-            map.put("orderOwner","orderOwner");
-            map.put("orderStatus","orderStatus");
-            map.put("orderNumber","orderNumber");
+            map.put("orderOwner","彭先洋");
+            map.put("orderStatus","已付款");
+            map.put("orderNumber","001");
             list_infos.add(map);
         }
 
