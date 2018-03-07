@@ -2,6 +2,7 @@ package com.example.administrator.yc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -23,6 +24,7 @@ public class MatchListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_list);
         getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         init_listView();
 
@@ -32,7 +34,7 @@ public class MatchListActivity extends AppCompatActivity {
     {
         listView_match_list = (ListView)findViewById(R.id.ListView_match_list);
         list_infos = new ArrayList<>();
-        total = 3;
+        total = 10;//历史比赛总数
 
         for(int i=0;i<=total-1;i++)//表示比赛类型的图片还要加入!
         {
