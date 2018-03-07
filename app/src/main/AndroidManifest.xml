@@ -17,6 +17,10 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".PersonalActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".MatchListActivity"
             android:screenOrientation="portrait">
         </activity>
