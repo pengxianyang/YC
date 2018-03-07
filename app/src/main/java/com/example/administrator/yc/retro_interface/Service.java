@@ -1,11 +1,13 @@
 package com.example.administrator.yc.retro_interface;
 
 import com.example.administrator.yc.model.Administrator;
+import com.example.administrator.yc.model.Match;
 import com.example.administrator.yc.model.Player;
 import com.example.administrator.yc.model.ResultEntity;
 
 import java.util.Map;
 
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
@@ -27,4 +29,10 @@ public interface Service {
 
     @POST("RegisterAction?func=1")
     Observable<ResultEntity> pRegister(@Body Player player);
+
+    @POST("GetFieldNameAction")
+    Observable<ResultEntity>getFieldName(@Query("fieldId") String id );
+
+    @POST("CreateMatchAction")
+    Observable<ResultEntity>CreateMatch(@Body Match match);
 }
