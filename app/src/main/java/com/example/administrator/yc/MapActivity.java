@@ -60,7 +60,7 @@ public class MapActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_map);
 
-        Match = this.getIntent().getExtras();
+//        Match = this.getIntent().getExtras();
         //获取百度地图控件
         mapView = (TextureMapView) findViewById(R.id.mTexturemap);
         //获取百度地图对象
@@ -132,8 +132,8 @@ public class MapActivity extends AppCompatActivity {
             if (isFirstLoc) {
                 isFirstLoc = false;
 //                LatLng xy = new LatLng(location.getLatitude(),location.getLongitude());
-                LatLng xy = new LatLng(38,105);
-                MapStatusUpdate status = MapStatusUpdateFactory.newLatLngZoom(xy,5);
+                LatLng xy = new LatLng(23.0662500000,113.3895300000);
+                MapStatusUpdate status = MapStatusUpdateFactory.newLatLngZoom(xy,16);
                 baiduMap.animateMapStatus(status);
 
             }
@@ -169,19 +169,19 @@ public class MapActivity extends AppCompatActivity {
         //构建Marker图标，并设置坐标点
         //地点1
         bitmap[0] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
-        point[0] = new LatLng(34.9399499582,113.0954316198);
+        point[0] = new LatLng(23.0634648499,113.3992052078);
         //地点2
-        bitmap[1] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
-        point[1] = new LatLng(35.2443351954,110.5224155436);
+        bitmap[1] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        point[1] = new LatLng(23.0557255312,113.3808374405);
         //地点3
-        bitmap[2] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
-        point[2] = new LatLng(39.4910370289,115.9809870437);
+        bitmap[2] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        point[2] = new LatLng(23.0548568044,113.4082603455);
         //地点4
-        bitmap[3] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
-        point[3] = new LatLng(35.5316306208,118.4405949919);
+        bitmap[3] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        point[3] = new LatLng(23.0389028245,113.3922100067);
         //地点5
         bitmap[4] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
-        point[4] = new LatLng(30.2799186759,120.1617445782);
+        point[4] = new LatLng(23.0401270829,113.3686494827);
         //创建OverlayOptions的集合
         List<OverlayOptions> options = new ArrayList<OverlayOptions>();
 
@@ -191,8 +191,9 @@ public class MapActivity extends AppCompatActivity {
             id.putString("id",Integer.toString(i));
             overlayOptions[i] =  new MarkerOptions()
                     .position(point[i])
-                    .icon(bitmap[i])
-                    .extraInfo(id);
+                    .icon(bitmap[i]).perspective(false)
+                    .extraInfo(id)
+                    .zIndex(20);
             options.add(overlayOptions[i]);
         }
         //在地图上批量添加
@@ -202,9 +203,9 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 String id = marker.getExtraInfo().getString("id");
-                Intent intent=new Intent(MapActivity.this,MainActivity.class);
-                Match.putString("id",id);
-                intent.putExtras(Match);
+                Intent intent=new Intent(MapActivity.this,MatchDetailsActivity.class);
+//                Match.putString("id",id);
+//                intent.putExtras(Match);
                 startActivity(intent);
                 return false;
             }
