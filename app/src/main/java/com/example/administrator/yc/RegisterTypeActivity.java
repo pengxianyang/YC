@@ -22,13 +22,15 @@ public class RegisterTypeActivity extends AppCompatActivity{
         setContentView(R.layout.activity_order_list);
         getSupportActionBar().hide();
 
+        button_administrator_register = (Button)findViewById(R.id.button_administrator_register);
+        button_player_register = (Button)findViewById(R.id.button_player_register);
+
         set_button();
     }
 
     public void set_button()
     {
-        button_administrator_register = (Button)findViewById(R.id.button_administrator_register);
-        button_player_register = (Button)findViewById(R.id.button_player_register);
+
 
         button_player_register.setOnClickListener(new View.OnClickListener() {
             @Override
