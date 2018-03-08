@@ -55,7 +55,7 @@ public class NewMatchActivity extends AppCompatActivity {
                 date_d=matchDate_d.getText().toString();
                 date_m=matchDate_m.getText().toString();
                 num=matchNum.getText().toString();
-                Intent intent=new Intent(NewMatchActivity.this,MatchDetailsActivity.class);
+                Intent intent=new Intent(NewMatchActivity.this,MapActivity.class);
                 startActivity(intent);
             }
         });
