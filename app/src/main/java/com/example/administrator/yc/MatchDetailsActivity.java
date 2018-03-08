@@ -47,7 +47,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
         button_check_player=(Button)findViewById(R.id.button_check_participator);
         button_check_player.setVisibility(View.GONE);
         retro=new Retro();
-        getFieldName(1);
+        getFieldName(MapActivity.id);
         button_confirm_match.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,8 +65,8 @@ public class MatchDetailsActivity extends AppCompatActivity {
             }
         });
     }
-    private void getFieldName(int fieldId){
-        retro.GetFieldName(String.valueOf(fieldId))
+    private void getFieldName(String fieldId){
+        retro.GetFieldName(fieldId)
                 .subscribe(new Subscriber<ResultEntity>() {
                     @Override
                     public void onCompleted() {
@@ -80,13 +80,13 @@ Toast.makeText(MatchDetailsActivity.this,e.getMessage(),Toast.LENGTH_LONG).show(
                     @Override
                     public void onNext(ResultEntity s) {
                         fieldName=s.getMessage();
-                        textView_match_place.setText("place:"+s.getMessage());
+                        textView_match_place.setText("场地:"+s.getMessage());
                         String date=NewMatchActivity.date_m+"-"+NewMatchActivity.date_d;
                         String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
-                        textView_match_time.setText("time:"+time);
-                        textView_match_date.setText("date:"+date);
-                        textView_player_counts.setText("current number:"+"1/"+NewMatchActivity.num);
-                        textView_match_status.setText("status:waiting");
+                        textView_match_time.setText("时间:"+time);
+                        textView_match_date.setText("日期:"+date);
+                        textView_player_counts.setText("当前人数:"+"1/"+NewMatchActivity.num);
+                        textView_match_status.setText("状态:waiting");
                     }
                 });
     }

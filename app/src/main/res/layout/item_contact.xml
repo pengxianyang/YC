@@ -9,7 +9,7 @@
         android:id="@+id/imageView_contact_icon"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@mipmap/ic_launcher"/>
+        android:background="@mipmap/icon3_s"/>
 \
     <TextView
         android:id="@+id/contact_name"
