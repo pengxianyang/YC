@@ -147,6 +147,14 @@ public class MainActivity extends AppCompatActivity {
             {
                 LayoutInflater layoutInflater = getLayoutInflater();
                 final View view1 = layoutInflater.inflate(R.layout.layout_viewpager1,null,false);
+                ImageView refresh=(ImageView)view1.findViewById(R.id.imageView_refresh);
+                refresh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(MainActivity.this,"暂无更新",Toast.LENGTH_LONG).show();
+                    }
+                });
+
                 final ConstraintLayout constrain1=(ConstraintLayout)view1.findViewById(R.id.constrain1);
                 final ConstraintLayout constrain2=(ConstraintLayout)view1.findViewById(R.id.constrain2);
                 final ConstraintLayout constrain3=(ConstraintLayout)view1.findViewById(R.id.constrain3);
@@ -209,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                                     textView_sub2_loc.setText(matches.get(1).getField_name());
                                     constrain3.setVisibility(View.GONE);
                                 }
-                                else if(matches.size()==3){
+                                else if(matches.size()>=3){
                                     textView_sub1_name.setText(matches.get(0).getCreator());
                                     textView_sub1_date.setText(matches.get(0).getTime());
                                     textView_sub1_time.setText(matches.get(0).getTime());
@@ -239,6 +247,13 @@ public class MainActivity extends AppCompatActivity {
             {
                 LayoutInflater layoutInflater2 = getLayoutInflater();
                 View view2 = layoutInflater2.inflate(R.layout.layout_viewpager2,null,false);
+                ImageView refresh=(ImageView)view2.findViewById(R.id.imageView_refresh);
+                refresh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(MainActivity.this,"暂无更新",Toast.LENGTH_LONG).show();
+                    }
+                });
 
                 TextView textView_sub1_sender = (TextView) view2.findViewById(R.id.textView_sub1_name);
                 TextView textView_sub1_receiver = (TextView) view2.findViewById(R.id.textView_sub1_receiver);
