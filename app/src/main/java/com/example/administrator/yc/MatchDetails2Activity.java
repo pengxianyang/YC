@@ -10,17 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.yc.model.Match;
 import com.example.administrator.yc.model.ResultEntity;
 import com.example.administrator.yc.retro_interface.Retro;
 
 import rx.Subscriber;
 
 /**
- * Created by Administrator on 2018/3/7.
+ * Created by a on 2018/3/8.
  */
 
-public class MatchDetailsActivity extends AppCompatActivity {
-
+public class MatchDetails2Activity extends AppCompatActivity{
     public ImageView imageView_match_type;//比赛类型
     public TextView textView_match_status;//比赛状态
     public TextView textView_player_counts;//比赛人数(当前人数/总人数)
@@ -44,69 +44,43 @@ public class MatchDetailsActivity extends AppCompatActivity {
         textView_player_counts = (TextView)findViewById(R.id.TextView_player_counts);
         textView_match_place = (TextView)findViewById(R.id.TextView_match_place);
         button_confirm_match = (Button)findViewById(R.id.button_confirm_match);
+        button_confirm_match.setVisibility(View.GONE);
         button_check_player=(Button)findViewById(R.id.button_check_participator);
-        button_check_player.setVisibility(View.GONE);
-        retro=new Retro();
-        getFieldName(1);
-        button_confirm_match.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String date=NewMatchActivity.date_m+"-"+NewMatchActivity.date_d;
-                String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
-                CreateMatch(GlobalData.username,date+" "+time,fieldName,0,
-                               Integer.parseInt(NewMatchActivity.num),NewMatchActivity.type);
-            }
-        });
+
+        final Match match = (Match) getIntent().getExtras().getSerializable("match");
+        textView_match_status.setText("状态:"+match.getStatus());
+        textView_player_counts.setText("当前比赛人数"+match.getCurrentNum()+"/"+match.getTotal());
+        String[] time=match.getTime().split(" ");
+        textView_match_date.setText("比赛日期:"+time[0]);
+        textView_match_time.setText("比赛时间:"+time[1]);
+        textView_match_place.setText("比赛地点:"+match.getField_name());
+
         button_check_player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MatchDetailsActivity.this,ParticipatorListActivity.class);
+                Intent intent=new Intent(MatchDetails2Activity.this,ParticipatorListActivity.class);
+                intent.putExtra("matchId",String.valueOf(match.getId()));
                 startActivity(intent);
             }
         });
-    }
-    private void getFieldName(int fieldId){
-        retro.GetFieldName(String.valueOf(fieldId))
+        Retro retro=new Retro();
+        retro.ParticipateMatch(match.getId(),GlobalData.username)
                 .subscribe(new Subscriber<ResultEntity>() {
                     @Override
                     public void onCompleted() {
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-Toast.makeText(MatchDetailsActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onNext(ResultEntity s) {
-                        fieldName=s.getMessage();
-                        textView_match_place.setText("place:"+s.getMessage());
-                        String date=NewMatchActivity.date_m+"-"+NewMatchActivity.date_d;
-                        String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
-                        textView_match_time.setText("time:"+time);
-                        textView_match_date.setText("date:"+date);
-                        textView_player_counts.setText("current number:"+"1/"+NewMatchActivity.num);
-                        textView_match_status.setText("status:waiting");
-                    }
-                });
-    }
-    private void CreateMatch(String creator,String time,String field_name,int field_id,int total,String type){
-        retro.CreateMatch(creator,time,field_name,field_id,total,type)
-                .subscribe(new Subscriber<ResultEntity>() {
-                    @Override
-                    public void onCompleted() {
-                        Toast.makeText(MatchDetailsActivity.this,"创建成功",Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(MatchDetailsActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onNext(ResultEntity resultEntity) {
-                        Toast.makeText(MatchDetailsActivity.this,String.valueOf(resultEntity.getCode()),Toast.LENGTH_LONG).show();
+                        if(resultEntity.getCode()==1) Toast.makeText(MatchDetails2Activity.this,"成功参与此比赛！",Toast.LENGTH_LONG).show();
                     }
                 });
     }
+
 }

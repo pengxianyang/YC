@@ -43,7 +43,7 @@ public class PRegisterActivity extends AppCompatActivity{
     {
         editText_account = (EditText)findViewById(R.id.editText_account);
         editText_password = (EditText)findViewById(R.id.editText_password);
-        editText_confirm_password = (EditText)findViewById(R.id.editText_account);
+        editText_confirm_password = (EditText)findViewById(R.id.editText_confirm_password);
         editText_email = (EditText)findViewById(R.id.editText_email);
         editText_phone = (EditText)findViewById(R.id.editText_phone);
         editText_name = (EditText)findViewById(R.id.editText_name);

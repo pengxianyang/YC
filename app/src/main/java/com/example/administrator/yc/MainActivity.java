@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter myAdapter;
     private CircleIndicator circleIndicator;
     private int numOfPage = 2;
+    private List<Match>matches_ = new ArrayList<Match>();
     Retro retro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 LayoutInflater layoutInflater = getLayoutInflater();
                 final View view1 = layoutInflater.inflate(R.layout.layout_viewpager1,null,false);
-                ConstraintLayout constrain1=(ConstraintLayout)view1.findViewById(R.id.constrain1);
+                final ConstraintLayout constrain1=(ConstraintLayout)view1.findViewById(R.id.constrain1);
                 final ConstraintLayout constrain2=(ConstraintLayout)view1.findViewById(R.id.constrain2);
                 final ConstraintLayout constrain3=(ConstraintLayout)view1.findViewById(R.id.constrain3);
                 final TextView textView_sub1_name = (TextView) view1.findViewById(R.id.textView_sub1_name);
@@ -169,7 +170,9 @@ public class MainActivity extends AppCompatActivity {
                         .subscribe(new Subscriber<List<Match>>() {
                             @Override
                             public void onCompleted() {
-
+                                constrain1.setOnClickListener(onClickListener);
+                                constrain2.setOnClickListener(onClickListener);
+                                constrain3.setOnClickListener(onClickListener);
                             }
 
                             @Override
@@ -179,10 +182,12 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onNext(List<Match> matches) {
+                                matches_ = matches;
                                 if(matches.size()==0){
                                     view1.setVisibility(View.GONE);
                                 }
                                 else if(matches.size()==1){
+
                                     textView_sub1_name.setText(matches.get(0).getCreator());
                                     textView_sub1_date.setText(matches.get(0).getTime());
                                     textView_sub1_time.setText(matches.get(0).getTime());
@@ -325,5 +330,34 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Match match = null;
+            switch (view.getId()){
+                case R.id.constrain1:
+                    if(matches_.size()>0){
+                        match = matches_.get(0);
+                    }
+                    break;
+                case R.id.constrain2:
+                    if(matches_.size()>1){
+                        match = matches_.get(1);
+                    }
+                    break;
+                case R.id.constrain3:
+                    if(matches_.size()>2){
+                        match = matches_.get(2);
+                    }
+                    break;
+            }
+            Intent intent = new Intent(MainActivity.this,MatchDetails2Activity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("match",match);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    };
 
 }

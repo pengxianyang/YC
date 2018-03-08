@@ -45,4 +45,7 @@ public interface Service {
 
     @POST("GetPlayer")
     Observable<Player>GetPlayer(@Query("username") String username);
+
+    @POST("ParticipateMatch")
+    Observable<ResultEntity>ParticipateMatch(@QueryMap Map<String,String> map);
 }

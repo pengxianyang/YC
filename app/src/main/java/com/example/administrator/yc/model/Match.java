@@ -1,10 +1,12 @@
 package com.example.administrator.yc.model;
 
+import java.io.Serializable;
+
 /**
  * Created by a on 2018/3/7.
  */
 
-public class Match {
+public class Match implements Serializable{
     int id;
     String creator;
     String type;

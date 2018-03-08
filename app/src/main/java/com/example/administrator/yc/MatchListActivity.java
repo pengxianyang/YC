@@ -3,7 +3,9 @@ package com.example.administrator.yc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -57,7 +59,7 @@ public class MatchListActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext(List<Match> matches) {
+                    public void onNext(final List<Match> matches) {
                         for(int i=0;i<matches.size();i++)//表示比赛类型的图片还要加入!
                         {
                             Map<String,String> map = new LinkedHashMap<>();
@@ -74,9 +76,18 @@ public class MatchListActivity extends AppCompatActivity {
                                 R.layout.layout_match,
                                 new String[]{"matchOwner","matchDate","matchTime","matchLocation","matchStatus"},
                                 new int[]{R.id.textView_sub1_name ,R.id.textView_sub1_date, R.id.textView_sub1_time,R.id.textView_sub1_loc,R.id.textView_sub1_sit});
-
                         listView_match_list.setAdapter(simpleAdapter);
                         listView_match_list.setDivider(null);
+                        listView_match_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Intent intent=new Intent(MatchListActivity.this,MatchDetails2Activity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("match",matches.get(i));
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        });
                     }
                 });
 

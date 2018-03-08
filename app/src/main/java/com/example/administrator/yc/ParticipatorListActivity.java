@@ -1,10 +1,12 @@
 package com.example.administrator.yc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.administrator.yc.model.Player;
 import com.example.administrator.yc.retro_interface.Retro;
@@ -35,10 +37,13 @@ public class ParticipatorListActivity extends AppCompatActivity{
 
     public void init_listView()
     {
+        Intent intent=this.getIntent();
+        String matchId=intent.getStringExtra("matchId");
+        Toast.makeText(ParticipatorListActivity.this,matchId,Toast.LENGTH_LONG).show();
         listView_participator_list = (ListView)findViewById(R.id.ListView_particpator_list);
         list_infos = new ArrayList<>();
         Retro retro=new Retro();
-        retro.GetPlayerList("1")
+        retro.GetPlayerList(matchId)
                 .subscribe(new Subscriber<List<Player>>() {
                     @Override
                     public void onCompleted() {
@@ -55,9 +60,9 @@ public class ParticipatorListActivity extends AppCompatActivity{
                         for(int i=0;i<players.size();i++)
                         {
                             Map<String,String> map = new LinkedHashMap<>();
-                            map.put("name",players.get(i).getUsername());
-                            map.put("phone",players.get(i).getPhone());
-                            map.put("sexal",players.get(i).getMail());
+                            map.put("name","用户名:"+players.get(i).getUsername());
+                            map.put("phone","电话:"+players.get(i).getPhone());
+                            map.put("sexal","邮箱:"+players.get(i).getMail());
                             list_infos.add(map);
                         }
                         SimpleAdapter simpleAdapter = new SimpleAdapter(

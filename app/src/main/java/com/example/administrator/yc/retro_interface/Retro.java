@@ -85,4 +85,12 @@ public class Retro {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+    public Observable<ResultEntity>ParticipateMatch(int matchId,String username){
+        Map<String,String> map=new HashMap<>();
+        map.put("matchId",String.valueOf(matchId));
+        map.put("username",username);
+        return service.ParticipateMatch(map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }
