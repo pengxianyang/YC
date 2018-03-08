@@ -131,6 +131,10 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".SendMassageActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
 
     </application>
 
