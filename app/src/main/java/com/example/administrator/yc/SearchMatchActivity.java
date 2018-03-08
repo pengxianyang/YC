@@ -1,17 +1,24 @@
 package com.example.administrator.yc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
+import com.example.administrator.yc.model.Match;
+import com.example.administrator.yc.retro_interface.Retro;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+
+import rx.Subscriber;
 
 /**
  * Created by victory on 2018/3/7.
@@ -40,10 +47,18 @@ public class SearchMatchActivity extends AppCompatActivity {
         setContentView(R.layout.layout_select_match);
         init_data();
         Init();
+        Button button=(Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(SearchMatchActivity.this,MatchListActivity.class);
+                intent.putExtra("type",Sport.getText().toString());
+                startActivity(intent);
+            }
+        });
     }
 
     private void Init() {
-
         Sport= (EditText)findViewById(R.id.sport);
         Fromtime = (EditText)findViewById(R.id.time1);
         Totime = (EditText)findViewById(R.id.time2);
@@ -113,9 +128,9 @@ public class SearchMatchActivity extends AppCompatActivity {
     private void init_data(){
         choice_sport = new ArrayList<>();
         choice_sport.add("<无>");
-        choice_sport.add("足球");
-        choice_sport.add("篮球");
-        choice_sport.add("跑步");
+        choice_sport.add("soccer");
+        choice_sport.add("basketball");
+        choice_sport.add("running");
 
         choice_Expense = new ArrayList<>();
         choice_Expense.add("<无>");

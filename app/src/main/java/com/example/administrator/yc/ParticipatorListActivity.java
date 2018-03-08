@@ -6,10 +6,15 @@ import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.administrator.yc.model.Player;
+import com.example.administrator.yc.retro_interface.Retro;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2018/3/8.
@@ -25,35 +30,45 @@ public class ParticipatorListActivity extends AppCompatActivity{
         setContentView(R.layout.activity_participator_list);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         init_listView();
-
     }
 
     public void init_listView()
     {
         listView_participator_list = (ListView)findViewById(R.id.ListView_particpator_list);
         list_infos = new ArrayList<>();
-        total=10;
+        Retro retro=new Retro();
+        retro.GetPlayerList("1")
+                .subscribe(new Subscriber<List<Player>>() {
+                    @Override
+                    public void onCompleted() {
 
-        for(int i=0;i<=total-1;i++)
-        {
-            Map<String,String> map = new LinkedHashMap<>();
-            map.put("name","欧欣祺");
-            map.put("phone","13622222222");
-            map.put("sexal","男");
-            list_infos.add(map);
-        }
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
 
+                    }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(
-                ParticipatorListActivity.this,
-                list_infos,
-                R.layout.layout_person,
-                new String[]{"name","phone","sexal"},
-                new int[]{R.id.textView_name ,R.id.textView_phone, R.id.textView_sexal});
+                    @Override
+                    public void onNext(List<Player> players) {
+                        for(int i=0;i<=players.size();i++)
+                        {
+                            Map<String,String> map = new LinkedHashMap<>();
+                            map.put("name",players.get(i).getUsername());
+                            map.put("phone",players.get(i).getPhone());
+                            map.put("sexal",players.get(i).getMail());
+                            list_infos.add(map);
+                        }
+                        SimpleAdapter simpleAdapter = new SimpleAdapter(
+                                ParticipatorListActivity.this,
+                                list_infos,
+                                R.layout.layout_person,
+                                new String[]{"name","phone","sexal"},
+                                new int[]{R.id.textView_name ,R.id.textView_phone, R.id.textView_sexal});
 
-        listView_participator_list.setAdapter(simpleAdapter);
+                        listView_participator_list.setAdapter(simpleAdapter);
+                    }
+                });
     }
 }

@@ -6,6 +6,7 @@ import com.example.administrator.yc.model.Player;
 import com.example.administrator.yc.model.ResultEntity;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Retrofit;
@@ -63,6 +64,19 @@ public class Retro {
     public Observable<ResultEntity>CreateMatch(String creator,String time,String field_name,int field_id,int total,String type){
         Match match=new Match(0,total,creator,type,field_id,field_name,time,0,"","");
         return service.CreateMatch(match)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    public Observable<List<Match>>GetMatchList(String key,String func){
+        Map<String,String> map=new HashMap<>();
+        map.put("username",key);
+        map.put("func",func);
+        return service.GetMatchList(map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    public Observable<List<Player>> GetPlayerList(String matchId){
+        return service.GetPlayerList(matchId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
