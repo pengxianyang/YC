@@ -3,6 +3,7 @@ package com.example.administrator.yc;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.yc.model.Match;
+import com.example.administrator.yc.retro_interface.Retro;
+import com.example.administrator.yc.retro_interface.Service;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
@@ -25,6 +29,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
+import rx.Subscriber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter myAdapter;
     private CircleIndicator circleIndicator;
     private int numOfPage = 2;
-
+    Retro retro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
+        retro=new Retro();
         set_Boom_Menu();
         set_View_Pager();
     }
@@ -137,26 +142,81 @@ public class MainActivity extends AppCompatActivity {
             if(i==0)//first_page
             {
                 LayoutInflater layoutInflater = getLayoutInflater();
-                View view1 = layoutInflater.inflate(R.layout.layout_viewpager1,null,false);
-                TextView textView_sub1_name = (TextView) view1.findViewById(R.id.textView_sub1_name);
-                TextView textView_sub1_date = (TextView) view1.findViewById(R.id.textView_sub1_date);
-                TextView textView_sub1_time = (TextView) view1.findViewById(R.id.textView_sub1_time);
-                TextView textView_sub1_loc = (TextView) view1.findViewById(R.id.textView_sub1_loc);
+                final View view1 = layoutInflater.inflate(R.layout.layout_viewpager1,null,false);
+                ConstraintLayout constrain1=(ConstraintLayout)view1.findViewById(R.id.constrain1);
+                final ConstraintLayout constrain2=(ConstraintLayout)view1.findViewById(R.id.constrain2);
+                final ConstraintLayout constrain3=(ConstraintLayout)view1.findViewById(R.id.constrain3);
+                final TextView textView_sub1_name = (TextView) view1.findViewById(R.id.textView_sub1_name);
+                final TextView textView_sub1_date = (TextView) view1.findViewById(R.id.textView_sub1_date);
+                final TextView textView_sub1_time = (TextView) view1.findViewById(R.id.textView_sub1_time);
+                final TextView textView_sub1_loc = (TextView) view1.findViewById(R.id.textView_sub1_loc);
 
-                TextView textView_sub2_name = (TextView) view1.findViewById(R.id.textView_sub2_name);
-                TextView textView_sub2_date = (TextView) view1.findViewById(R.id.textView_sub2_date);
-                TextView textView_sub2_time = (TextView) view1.findViewById(R.id.textView_sub2_time);
-                TextView textView_sub2_loc = (TextView) view1.findViewById(R.id.textView_sub2_loc);
+                final TextView textView_sub2_name = (TextView) view1.findViewById(R.id.textView_sub2_name);
+                final TextView textView_sub2_date = (TextView) view1.findViewById(R.id.textView_sub2_date);
+                final TextView textView_sub2_time = (TextView) view1.findViewById(R.id.textView_sub2_time);
+                final TextView textView_sub2_loc = (TextView) view1.findViewById(R.id.textView_sub2_loc);
 
-                TextView textView_sub3_name = (TextView) view1.findViewById(R.id.textView_sub3_name);
-                TextView textView_sub3_date = (TextView) view1.findViewById(R.id.textView_sub3_date);
-                TextView textView_sub3_time = (TextView) view1.findViewById(R.id.textView_sub3_time);
-                TextView textView_sub3_loc = (TextView) view1.findViewById(R.id.textView_sub3_loc);
+                final TextView textView_sub3_name = (TextView) view1.findViewById(R.id.textView_sub3_name);
+                final TextView textView_sub3_date = (TextView) view1.findViewById(R.id.textView_sub3_date);
+                final TextView textView_sub3_time = (TextView) view1.findViewById(R.id.textView_sub3_time);
+                final TextView textView_sub3_loc = (TextView) view1.findViewById(R.id.textView_sub3_loc);
 
                 ImageView imageView_sub1_icon = (ImageView) view1.findViewById(R.id.imageView_sub1);
                 ImageView imageView_sub2_icon = (ImageView) view1.findViewById(R.id.imageView_sub2);
                 ImageView imageView_sub3_icon = (ImageView) view1.findViewById(R.id.imageView_sub3);
 
+                retro.GetMatchList(GlobalData.username,"0")
+                        .subscribe(new Subscriber<List<Match>>() {
+                            @Override
+                            public void onCompleted() {
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onNext(List<Match> matches) {
+                                if(matches.size()==0){
+                                    view1.setVisibility(View.GONE);
+                                }
+                                else if(matches.size()==1){
+                                    textView_sub1_name.setText(matches.get(0).getCreator());
+                                    textView_sub1_date.setText(matches.get(0).getTime());
+                                    textView_sub1_time.setText(matches.get(0).getTime());
+                                    textView_sub1_loc.setText(matches.get(0).getField_name());
+                                    constrain2.setVisibility(View.GONE);
+                                    constrain3.setVisibility(View.GONE);
+                                }
+                                else if(matches.size()==2){
+                                    textView_sub1_name.setText(matches.get(0).getCreator());
+                                    textView_sub1_date.setText(matches.get(0).getTime());
+                                    textView_sub1_time.setText(matches.get(0).getTime());
+                                    textView_sub1_loc.setText(matches.get(0).getField_name());
+                                    textView_sub2_name.setText(matches.get(1).getCreator());
+                                    textView_sub2_date.setText(matches.get(1).getTime());
+                                    textView_sub2_time.setText(matches.get(1).getTime());
+                                    textView_sub2_loc.setText(matches.get(1).getField_name());
+                                    constrain3.setVisibility(View.GONE);
+                                }
+                                else if(matches.size()==3){
+                                    textView_sub1_name.setText(matches.get(0).getCreator());
+                                    textView_sub1_date.setText(matches.get(0).getTime());
+                                    textView_sub1_time.setText(matches.get(0).getTime());
+                                    textView_sub1_loc.setText(matches.get(0).getField_name());
+                                    textView_sub2_name.setText(matches.get(1).getCreator());
+                                    textView_sub2_date.setText(matches.get(1).getTime());
+                                    textView_sub2_time.setText(matches.get(1).getTime());
+                                    textView_sub2_loc.setText(matches.get(1).getField_name());
+                                    textView_sub3_name.setText(matches.get(2).getCreator());
+                                    textView_sub3_date.setText(matches.get(2).getTime());
+                                    textView_sub3_time.setText(matches.get(2).getTime());
+                                    textView_sub3_loc.setText(matches.get(2).getField_name());
+                                }
+                            }
+                        });
 //                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/E1.ttf");
 //                textView_name.setTypeface(typeface);
 //                textView_signature.setTypeface(typeface);
