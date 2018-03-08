@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         retro=new Retro();
         set_Boom_Menu();
         set_View_Pager();
+        TextView name=(TextView)findViewById(R.id.textView_name);
+        name.setText(GlobalData.username);
     }
 
     public void set_Boom_Menu()

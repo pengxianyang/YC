@@ -23,7 +23,7 @@ import rx.schedulers.Schedulers;
 public class Retro {
     private Service service;
     public Retro() {
-        String baseUrl="http://172.18.93.209:8066/Android/";
+        String baseUrl="http://120.79.217.219:8080/Android/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())

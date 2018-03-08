@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onError(Throwable e) {
-                            Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(resultEntity.getCode()==0)
                                 Toast.makeText(LoginActivity.this,"用户或密码错误",Toast.LENGTH_LONG).show();
                             else if(resultEntity.getCode()==-1)
-                                Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this,"连接失败2",Toast.LENGTH_LONG).show();
                             else if(resultEntity.getCode()==1){  //管理员登录
                                 GlobalData.username=username;
                                 GlobalData.password=password;
