@@ -40,7 +40,7 @@ public class MapActivity extends AppCompatActivity {
     private TextureMapView mapView;//百度地图控件
     private BaiduMap baiduMap;//百度地图对象
     boolean isFirstLoc = true; // 是否首次定位
-    Bundle Match;
+    public static String id;
 
     //地图类型切换
     int flag = 1;
@@ -187,12 +187,12 @@ public class MapActivity extends AppCompatActivity {
 
         //创建OverlayOptions属性,并将OverlayOptions添加到list
         for(int i = 0; i < num; i++){
-            Bundle id = new Bundle();
-            id.putString("id",Integer.toString(i));
+            Bundle id_bundle = new Bundle();
+            id_bundle.putString("id",Integer.toString(i+1));
             overlayOptions[i] =  new MarkerOptions()
                     .position(point[i])
                     .icon(bitmap[i]).perspective(false)
-                    .extraInfo(id)
+                    .extraInfo(id_bundle)
                     .zIndex(20);
             options.add(overlayOptions[i]);
         }
@@ -202,10 +202,8 @@ public class MapActivity extends AppCompatActivity {
         baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                String id = marker.getExtraInfo().getString("id");
+                id = marker.getExtraInfo().getString("id");
                 Intent intent=new Intent(MapActivity.this,MatchDetailsActivity.class);
-//                Match.putString("id",id);
-//                intent.putExtras(Match);
                 startActivity(intent);
                 return false;
             }
