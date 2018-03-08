@@ -80,4 +80,9 @@ public class Retro {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+    public Observable<Player>GetPlayer(String username){
+        return service.GetPlayer(username)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }

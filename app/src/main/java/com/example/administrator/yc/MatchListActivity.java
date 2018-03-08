@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.administrator.yc.model.Match;
 import com.example.administrator.yc.retro_interface.Retro;
@@ -52,13 +53,12 @@ public class MatchListActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Toast.makeText(MatchListActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onNext(List<Match> matches) {
-                        total = 10;//历史比赛总数
-                        for(int i=0;i<=matches.size();i++)//表示比赛类型的图片还要加入!
+                        for(int i=0;i<matches.size();i++)//表示比赛类型的图片还要加入!
                         {
                             Map<String,String> map = new LinkedHashMap<>();
                             map.put("matchOwner",matches.get(i).getCreator());

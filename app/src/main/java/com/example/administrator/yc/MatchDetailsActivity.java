@@ -1,5 +1,6 @@
 package com.example.administrator.yc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +27,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
     public TextView textView_match_place;//比赛场馆
     public TextView textView_match_date;//比赛日期
     public TextView textView_match_time;//比赛时间
-    public Button button_confirm_match;//确认比赛按钮
+    public Button button_confirm_match,button_check_player;//确认比赛按钮
     private String fieldName;
     Retro retro;
     @Override
@@ -43,6 +44,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
         textView_player_counts = (TextView)findViewById(R.id.TextView_player_counts);
         textView_match_place = (TextView)findViewById(R.id.TextView_match_place);
         button_confirm_match = (Button)findViewById(R.id.button_confirm_match);
+        button_check_player=(Button)findViewById(R.id.button_check_participator);
         retro=new Retro();
         getFieldName(1);
         button_confirm_match.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,13 @@ public class MatchDetailsActivity extends AppCompatActivity {
                 String time=NewMatchActivity.time_h+":"+NewMatchActivity.time_m;
                 CreateMatch(GlobalData.username,date+" "+time,fieldName,0,
                                Integer.parseInt(NewMatchActivity.num),NewMatchActivity.type);
+            }
+        });
+        button_check_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MatchDetailsActivity.this,ParticipatorListActivity.class);
+                startActivity(intent);
             }
         });
     }

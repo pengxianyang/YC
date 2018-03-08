@@ -52,7 +52,7 @@ public class ParticipatorListActivity extends AppCompatActivity{
 
                     @Override
                     public void onNext(List<Player> players) {
-                        for(int i=0;i<=players.size();i++)
+                        for(int i=0;i<players.size();i++)
                         {
                             Map<String,String> map = new LinkedHashMap<>();
                             map.put("name",players.get(i).getUsername());

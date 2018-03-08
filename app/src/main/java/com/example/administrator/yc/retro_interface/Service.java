@@ -42,4 +42,7 @@ public interface Service {
 
     @POST("GetPlayerList")
     Observable<List<Player>>GetPlayerList(@Query("matchId") String matchId);
+
+    @POST("GetPlayer")
+    Observable<Player>GetPlayer(@Query("username") String username);
 }
