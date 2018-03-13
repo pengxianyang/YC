@@ -71,7 +71,9 @@
             app:bmb_piecePlaceEnum="piecePlace_dot_6_1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:bmb_normalColor="@color/lightVyan"
+            app:bmb_dimColor="@color/paleGreen"/>
 
     </android.support.constraint.ConstraintLayout>
 
