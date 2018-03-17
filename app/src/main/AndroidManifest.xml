@@ -59,24 +59,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".MainActivity2"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".PRegisterActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MainActivity2"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PRegisterActivity"
+            android:screenOrientation="portrait"></activity>
 
-         <!-- 百度定位服务 -->
-         <meta-data
-         android:name="com.baidu.lbsapi.API_KEY"
-         android:value="9b3sTVc8m7xLCMPzoGro37T6E50GcoKB" />
-         <service
-         android:name="com.baidu.location.f"
-         android:enabled="true"
-         android:process=":remote" />
+        <!-- 百度定位服务 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="9b3sTVc8m7xLCMPzoGro37T6E50GcoKB" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
         <activity
             android:name=".PersonalActivity"
             android:screenOrientation="portrait" />
@@ -89,28 +91,23 @@
         <activity
             android:name=".OrderListActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".NewMatchActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".RegisterTypeActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".MatchDetailsActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".MatchDetails2Activity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name="LoginActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".CoverActivity"
+        <activity
+            android:name=".NewMatchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".RegisterTypeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MatchDetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MatchDetails2Activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".CoverActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -118,28 +115,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.administrator.yc.ContactviewActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".SearchMatchActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity android:name=".MapActivity" >
-        </activity>
-
-        <activity android:name=".ParticipatorListActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".SendMassageActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-
+        <activity
+            android:name=".ContactviewActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SearchMatchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MapActivity"></activity>
+        <activity
+            android:name=".ParticipatorListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SendMassageActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MapTestActivity"></activity>
     </application>
 
 </manifest>
