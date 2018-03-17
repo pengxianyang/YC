@@ -1,8 +1,10 @@
 package com.example.administrator.yc;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
@@ -12,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -168,19 +172,19 @@ public class MapActivity extends AppCompatActivity {
     public void initial_pos(){
         //构建Marker图标，并设置坐标点
         //地点1
-        bitmap[0] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
+        bitmap[0] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_map);
         point[0] = new LatLng(23.0634648499,113.3992052078);
         //地点2
-        bitmap[1] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        bitmap[1] = BitmapDescriptorFactory.fromResource(R.mipmap.football_map);
         point[1] = new LatLng(23.0557255312,113.3808374405);
         //地点3
-        bitmap[2] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        bitmap[2] = BitmapDescriptorFactory.fromResource(R.mipmap.football_map);
         point[2] = new LatLng(23.0548568044,113.4082603455);
         //地点4
-        bitmap[3] = BitmapDescriptorFactory.fromResource(R.mipmap.football_s);
+        bitmap[3] = BitmapDescriptorFactory.fromResource(R.mipmap.football_map);
         point[3] = new LatLng(23.0389028245,113.3922100067);
         //地点5
-        bitmap[4] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_s);
+        bitmap[4] = BitmapDescriptorFactory.fromResource(R.mipmap.basketball_map);
         point[4] = new LatLng(23.0401270829,113.3686494827);
         //创建OverlayOptions的集合
         List<OverlayOptions> options = new ArrayList<OverlayOptions>();
@@ -198,6 +202,20 @@ public class MapActivity extends AppCompatActivity {
         }
         //在地图上批量添加
         baiduMap.addOverlays(options);
+
+        //创建InfoWindow展示的view
+        TextView textView = new TextView(getApplicationContext());
+        textView.setText("中大运动场");
+        textView.setTextSize(24);
+        //textView.setTextColor(Color.rgb(88, 186, 206));
+        textView.setTextColor(Color.rgb(230, 102, 102));
+        //定义用于显示该InfoWindow的坐标点
+        LatLng pt = new LatLng(23.0401270829,113.3686494827);
+        //创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量
+        InfoWindow mInfoWindow = new InfoWindow(textView, pt, -90);
+        //显示InfoWindow
+        baiduMap.showInfoWindow(mInfoWindow);
+
         //设置监听器
         baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
@@ -208,5 +226,7 @@ public class MapActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
 }
