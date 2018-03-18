@@ -61,13 +61,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity2"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PRegisterActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <!-- 百度定位服务 -->
         <meta-data
@@ -93,19 +93,19 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".NewMatchActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterTypeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MatchDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MatchDetails2Activity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CoverActivity"
             android:screenOrientation="portrait">
@@ -117,18 +117,19 @@
         </activity>
         <activity
             android:name=".ContactviewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SearchMatchActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".MapActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".MapActivity" />
         <activity
             android:name=".ParticipatorListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SendMassageActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".MapTestActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".MapTestActivity" />
+        <activity android:name=".MapSelectActivity" />
     </application>
 
 </manifest>
